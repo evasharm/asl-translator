@@ -1,0 +1,66 @@
+{
+  "baseline": {
+    "view": "raw",
+    "model": "logreg",
+    "n_features": 63,
+    "split": "signer",
+    "detection_rate": 0.6449304174950298,
+    "n_train": 962,
+    "n_test": 660,
+    "n_test_total": 895,
+    "accuracy": 0.8212121212121212,
+    "top3": 0.9166666666666666,
+    "accuracy_strict": 0.605586592178771,
+    "accuracy_merged": 0.8636363636363636,
+    "fit_seconds": 0.8347289562225342,
+    "worst_classes": [
+      [
+        "c",
+        0.0
+      ],
+      [
+        "m",
+        0.0
+      ],
+      [
+        "n",
+        0.0
+      ],
+      [
+        "q",
+        0.0
+      ],
+      [
+        "s",
+        0.0
+      ]
+    ],
+    "confused_pairs": [
+      [
+        "0",
+        "o",
+        11
+      ],
+      [
+        "q",
+        "p",
+        11
+      ],
+      [
+        "n",
+        "0",
+        9
+      ],
+      [
+        "v",
+        "u",
+        8
+      ],
+      [
+        "c",
+        "o",
+        6
+      ]
+    ]
+  }
+}
