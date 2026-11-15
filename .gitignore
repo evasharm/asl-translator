@@ -1,0 +1,10 @@
+.venv/
+.DS_Store
+data/
+data_own/
+cache/*.npz
+demo_out/
+models/*.task
+*.joblib
+*.log
+logs/
