@@ -1,0 +1,20 @@
+| Augmentation | Features | Model | Train size | Test acc | Strict | Merged |
+|---|---|---|---|---|---|---|
+| none | normalized | logreg | 1,593 | 91.3 +/- 0.0% | 89.9% | 95.6% |
+| none | normalized | mlp | 1,593 | 89.3 +/- 0.5% | 88.0% | 92.9% |
+| rotate | normalized | logreg | 9,558 | 90.0 +/- 0.4% | 88.7% | 95.1% |
+| rotate | normalized | mlp | 9,558 | 87.0 +/- 0.7% | 85.7% | 92.0% |
+| scale | normalized | logreg | 9,558 | 91.3 +/- 0.1% | 89.9% | 95.8% |
+| scale | normalized | mlp | 9,558 | 88.6 +/- 0.6% | 87.3% | 92.9% |
+| tilt | normalized | logreg | 9,558 | 92.7 +/- 0.4% | 91.4% | 97.2% |
+| tilt | normalized | mlp | 9,558 | 91.9 +/- 0.5% | 90.6% | 97.2% |
+| jitter | normalized | logreg | 9,558 | 91.8 +/- 0.2% | 90.5% | 96.2% |
+| jitter | normalized | mlp | 9,558 | 90.3 +/- 0.8% | 89.0% | 94.6% |
+| tilt+jitter | normalized | logreg | 9,558 | 93.3 +/- 0.2% | 92.0% | 97.6% |
+| tilt+jitter | normalized | mlp | 9,558 | 92.6 +/- 0.7% | 91.2% | 96.9% |
+| all | normalized | logreg | 9,558 | 93.1 +/- 0.2% | 91.8% | 97.5% |
+| all | normalized | mlp | 9,558 | 92.2 +/- 0.7% | 90.9% | 97.0% |
+| rotnorm | normalized+rot | logreg | 1,593 | 90.8 +/- 0.0% | 89.5% | 95.1% |
+| rotnorm | normalized+rot | mlp | 1,593 | 87.3 +/- 1.2% | 86.1% | 90.5% |
+| all+rotnorm | normalized+rot | logreg | 9,558 | 92.7 +/- 0.2% | 91.4% | 97.2% |
+| all+rotnorm | normalized+rot | mlp | 9,558 | 92.0 +/- 0.6% | 90.7% | 96.9% |
