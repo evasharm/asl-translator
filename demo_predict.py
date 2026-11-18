@@ -20,13 +20,14 @@ from mediapipe.tasks.python import vision
 import hand_landmarks_demo as hd
 
 hd._ensure = hd.ensure_model  # keep the original before overriding its default path
-from features import build_features
+from features import build_features, to_square_coords
+from twostage import TwoStage
 
 
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--source", default="0")
-    ap.add_argument("--model", default="results/model_iter2.joblib")
+    ap.add_argument("--model", default="results_own/model_final.joblib")
     ap.add_argument("--out", default="demo_out")
     ap.add_argument("--window", type=int, default=8, help="frames in the majority-vote window")
     ap.add_argument("--min-conf", type=float, default=0.5)
@@ -54,7 +55,7 @@ def main():
     votes = deque(maxlen=args.window)
     caption, writer = "", None
     t_start, last_ts, frame_idx = time.time(), -1, 0
-    with hd.make_landmarker(vision.RunningMode.VIDEO, 1, args.min_conf) as lm:
+    with TwoStage(model_path, min_conf=args.min_conf) as ts2:
         while True:
             ok, frame = cap.read()
             if not ok:
@@ -66,12 +67,15 @@ def main():
                 ts = frame_idx * 1000.0 / src_fps
             ts = max(int(ts), last_ts + 1)
             last_ts = ts
-            result = hd.detect(lm, frame, ts)
+            result = ts2.detect_video(frame, ts)
 
             label, conf = "-", 0.0
             if result.hand_landmarks:
-                pts = np.array([(p.x, p.y, p.z) for p in result.hand_landmarks[0]], np.float32)
+                pts, _, box = ts2.refine(frame, result)  # two-stage: crop around the hand and re-detect
+                pts = to_square_coords(pts, frame.shape[1], frame.shape[0])  # match the square training images
                 hand = hd.hand_label(result.handedness[0])
+                if box is not None:
+                    cv2.rectangle(frame, (box[0], box[1]), (box[0] + box[2], box[1] + box[2]), (80, 255, 120), 2)
                 X = build_features(pts[None], np.array([hand]), view)
                 proba = model.predict_proba(X)[0]
                 k = int(proba.argmax())
