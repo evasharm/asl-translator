@@ -35,17 +35,19 @@ from augment import augment
 from features import build_features
 
 MERGE = {"0": "o", "2": "v", "6": "w"}
-VIEW = "normalized"
+VIEW = "normalized_xy"  # z dropped: unreliable on small webcam hands and across MediaPipe versions
 
 
-def load_all(cache, own_glob):
+def load_all(cache, own_glob, key="landmarks"):
+    """key: 'landmarks' (two-stage in v2 recordings) or 'landmarks_full' (single pass)."""
     parts = []
     d = np.load(cache, allow_pickle=False)
     parts.append(dict(lm=d["landmarks"], det=d["detected"], hands=d["handedness"], y=d["label"],
                       signer=d["signer"], source=np.array(["kaggle"] * len(d["label"]))))
     for p in sorted(glob.glob(own_glob)):
         d = np.load(p, allow_pickle=False)
-        parts.append(dict(lm=d["landmarks"], det=d["detected"], hands=d["handedness"], y=d["label"],
+        lm = d[key] if key in d.files else d["landmarks"]
+        parts.append(dict(lm=lm, det=d["detected"], hands=d["handedness"], y=d["label"],
                           signer=d["signer"], source=np.array(["own"] * len(d["label"]))))
         print(f"loaded {p}: {len(d['label'])} frames, {d['detected'].mean() * 100:.0f}% with a hand, "
               f"signer {set(d['signer'])}, {len(set(d['label']))} signs")
@@ -89,10 +91,15 @@ def main():
     ap.add_argument("--model", default="logreg")
     ap.add_argument("--copies", type=int, default=5)
     ap.add_argument("--seeds", type=int, default=2)
+    ap.add_argument("--landmark-key", default="landmarks", help="landmarks (two-stage) or landmarks_full (single pass)")
+    ap.add_argument("--view", default=None)
     args = ap.parse_args()
     os.makedirs(args.out, exist_ok=True)
 
-    D = load_all(args.cache, args.own)
+    global VIEW
+    if args.view:
+        VIEW = args.view
+    D = load_all(args.cache, args.own, args.landmark_key)
     own_signers = sorted(set(D["signer"][D["source"] == "own"]))
     if not own_signers:
         raise SystemExit("no data_own/*.npz files found, record first with record_signs.py")

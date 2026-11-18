@@ -4,3 +4,5 @@ numpy
 scikit-learn>=1.3
 matplotlib
 joblib
+pandas
+pyarrow
