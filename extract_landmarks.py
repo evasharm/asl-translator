@@ -83,6 +83,7 @@ def _process(item):
         p = (H - h0) / 2  # same p on all sides
         lm[:, 0] = (lm[:, 0] * W - p) / w0
         lm[:, 1] = (lm[:, 1] * H - p) / h0
+        lm[:, 2] = lm[:, 2] * W / w0  # z is in padded-width units, rescale like x
     hand = res.handedness[0][0]
     return path, label, index, lm, True, hand.category_name, float(hand.score)
 

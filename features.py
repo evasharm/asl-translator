@@ -20,6 +20,22 @@ WRIST = 0
 MIDDLE_MCP = 9  # base knuckle of the middle finger
 
 
+def to_square_coords(lm, frame_w, frame_h):
+    """MediaPipe returns x as a fraction of the frame width and y as a fraction
+    of the frame height (z uses the same scale as x). On a non-square frame
+    (a 16:9 webcam) that squashes the hand sideways compared with the square
+    Kaggle images. Rescale x and z into units of the frame height so one unit
+    is the same length on every axis. No-op for square images.
+    lm: (..., 21, 3) array; frame_w / frame_h: scalars or (N,) arrays."""
+    lm = np.asarray(lm, dtype=np.float32).copy()
+    a = np.asarray(frame_w, np.float32) / np.asarray(frame_h, np.float32)
+    if a.ndim:
+        a = a[:, None]
+    lm[..., 0] *= a
+    lm[..., 2] *= a
+    return lm
+
+
 def normalize_landmarks(lm, handedness=None, mirror_left=True):
     """lm: (N, 21, 3) array. handedness: optional (N,) array of 'Left'/'Right'.
 
@@ -74,6 +90,9 @@ def build_features(lm, handedness=None, view="raw"):
     if view == "normalized+dist":
         n = normalize_landmarks(lm, handedness)
         return np.concatenate([n.reshape(len(n), -1), pairwise_distances(n)], axis=1)
+    if view == "normalized_xy":
+        # drop z: MediaPipe depth is noisy on small webcam hands and differs between versions
+        return normalize_landmarks(lm, handedness)[..., :2].reshape(len(lm), -1)
     if view == "normalized+rot":
         return rotation_normalize(normalize_landmarks(lm, handedness)).reshape(len(lm), -1)
     raise ValueError(f"unknown feature view: {view}")

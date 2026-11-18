@@ -77,6 +77,7 @@ def main():
     ap.add_argument("--seeds", type=int, default=3)
     ap.add_argument("--models", nargs="*", default=["logreg", "mlp"])
     ap.add_argument("--only", nargs="*", default=None)
+    ap.add_argument("--view", default=None, help="override the feature view for every experiment, e.g. normalized_xy")
     args = ap.parse_args()
     os.makedirs(args.out, exist_ok=True)
 
@@ -91,6 +92,8 @@ def main():
     for name, cfg in EXPERIMENTS.items():
         if args.only and name not in args.only:
             continue
+        if args.view:
+            cfg = dict(cfg, view=args.view if "rot" not in cfg["view"] else cfg["view"])
         for mk in args.models:
             key = f"{name}/{mk}"
             accs, stricts, mergeds, times = [], [], [], []
