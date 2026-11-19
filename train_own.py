@@ -34,7 +34,7 @@ from sklearn.preprocessing import StandardScaler
 from augment import augment
 from features import build_features
 
-MERGE = {"0": "o", "2": "v", "6": "w"}
+MERGE = {"0": "o", "2": "v", "6": "w", "9": "f"}  # same handshape in ASL
 VIEW = "normalized_xy"  # z dropped: unreliable on small webcam hands and across MediaPipe versions
 
 
@@ -93,6 +93,9 @@ def main():
     ap.add_argument("--seeds", type=int, default=2)
     ap.add_argument("--landmark-key", default="landmarks", help="landmarks (two-stage) or landmarks_full (single pass)")
     ap.add_argument("--view", default=None)
+    ap.add_argument("--max-own-per-sign", type=int, default=0,
+                    help="cap frames per sign from each own recording used for TRAINING (0 = all); "
+                         "stops 15k near-duplicate webcam frames from swamping 1.5k Kaggle photos")
     args = ap.parse_args()
     os.makedirs(args.out, exist_ok=True)
 
@@ -104,13 +107,23 @@ def main():
     if not own_signers:
         raise SystemExit("no data_own/*.npz files found, record first with record_signs.py")
     kaggle_train = (D["source"] == "kaggle") & (D["signer"] != "hand2")
+    # training-use mask for own recordings: evenly spaced subset per signer and sign
+    own_train_ok = np.ones(len(D["y"]), bool)
+    if args.max_own_per_sign:
+        own_train_ok[:] = False
+        for s in own_signers:
+            for c in sorted(set(D["y"])):
+                idx = np.where((D["signer"] == s) & (D["y"] == c) & D["det"])[0]
+                if len(idx) > args.max_own_per_sign:
+                    idx = idx[np.linspace(0, len(idx) - 1, args.max_own_per_sign).astype(int)]
+                own_train_ok[idx] = True
     kaggle_test = (D["source"] == "kaggle") & (D["signer"] == "hand2")
 
     results = {}
     best = None
     for s in own_signers:
         me = D["signer"] == s
-        others = (D["source"] == "own") & ~me
+        others = (D["source"] == "own") & ~me & own_train_ok
         exps = {
             f"kaggle -> {s}": (kaggle_train, False),
             f"kaggle+aug -> {s}": (kaggle_train, True),
@@ -147,7 +160,7 @@ def main():
     print("\n" + "\n".join(lines))
     if best is not None:
         # final model for the demo: trained on Kaggle + everyone's recordings + augmentation
-        allm = (D["source"] == "kaggle") | (D["source"] == "own")
+        allm = (D["source"] == "kaggle") | ((D["source"] == "own") & own_train_ok)
         r, model = run(D, allm, kaggle_test, True, args.copies, args.model, 0)
         joblib.dump(dict(model=model, view=VIEW, classes=list(model.classes_)), os.path.join(args.out, "model_final.joblib"))
         print(f"saved {args.out}/model_final.joblib (trained on everything, {r['n_train']:,} samples)")

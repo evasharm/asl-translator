@@ -38,7 +38,7 @@ from sklearn.preprocessing import StandardScaler
 from augment import augment
 from features import build_features
 
-MERGE = {"0": "o", "2": "v", "6": "w"}
+MERGE = {"0": "o", "2": "v", "6": "w", "9": "f"}  # same handshape in ASL
 EXPERIMENTS = {
     "none": dict(ops=(), view="normalized"),
     "rotate": dict(ops=("rotate",), view="normalized"),
