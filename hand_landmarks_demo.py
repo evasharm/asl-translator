@@ -56,7 +56,6 @@ HAND_COLORS = {"Left": (75, 138, 240), "Right": (255, 176, 127)}
 # unmirrored video or photo the labels come out swapped, so main() turns this on.
 SWAP_LABELS = False
 
-
 def hand_label(handed):
     name = handed[0].category_name
     if SWAP_LABELS:

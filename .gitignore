@@ -1,6 +1,7 @@
 .venv/
 .DS_Store
 data/
+data_signs/
 data_own/
 cache/*.npz
 demo_out/
