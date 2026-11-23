@@ -48,6 +48,10 @@ python make_proposal.py . Final_Project_Proposal.docx
 
 ## Midterm iterations (Nov 2026)
 
+Nov 19: both recordings in `data_own/` (Eva's made with the v1 recorder, aspect-fixed with `fix_aspect.py`). `train_own.py --max-own-per-sign 40` caps the other person's frames so 15k webcam frames do not swamp 1.5k dataset photos; results in `results_own/` (table, `hand_size.png`, `snapshots.jpg`, `model_final.joblib` for the demo). Merged accuracy now also counts 9/F. Report: `python make_midterm.py . Final_Project_Midterm_Report.docx`.
+
+Nov 18 changes: (1) `extract_landmarks.py` had a bug that left z at half scale after undoing the padding; fixed, and the cache was corrected (`cache/train_landmarks_zbug.npz` is the old one). (2) New feature view `normalized_xy` drops z, which is noisy on small webcam hands. `train_own.py` uses it. (3) `twostage.py`: detect on the full frame, crop around the hand, run MediaPipe again on the crop. `record_signs.py` (v2) and `demo_predict.py` use it; v2 recordings store both `landmarks` (two-stage) and `landmarks_full` (single pass). (4) `sim_small_hand.py` measures single vs two-stage accuracy as the hand shrinks in a 1080p frame. (5) `prep_signs.py` builds a small hands-only subset of the Kaggle ASL Signs dataset for the word-level model.
+
 ```bash
 # iteration 4: landmark augmentation grid, signer-independent test on hand2
 python train_augment.py --cache cache/train_landmarks.npz --out results_aug --copies 5
