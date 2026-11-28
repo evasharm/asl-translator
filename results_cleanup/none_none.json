@@ -1,0 +1,203 @@
+{
+  "provider": "none",
+  "model": "none",
+  "pairs": [
+    "GP",
+    "RU",
+    "MS",
+    "KV",
+    "MT",
+    "OQ",
+    "GO",
+    "GX",
+    "UV",
+    "DX"
+  ],
+  "table": {
+    "raw": {
+      "eva": {
+        "cer": 0.49499999999999994,
+        "word_acc": 0.1,
+        "over_correction": 0.0,
+        "n_raw_correct": 1,
+        "made_worse": 0.0
+      },
+      "isha": {
+        "cer": 0.40166666666666667,
+        "word_acc": 0.1,
+        "over_correction": 0.0,
+        "n_raw_correct": 1,
+        "made_worse": 0.0
+      },
+      "all": {
+        "cer": 0.4483333333333334,
+        "word_acc": 0.1,
+        "over_correction": 0.0,
+        "n_raw_correct": 2,
+        "made_worse": 0.0
+      },
+      "stream_cer": 0.36734693877551017
+    },
+    "dictionary": {
+      "eva": {
+        "cer": 0.5266666666666666,
+        "word_acc": 0.3,
+        "over_correction": 0.0,
+        "n_raw_correct": 1,
+        "made_worse": 0.5
+      },
+      "isha": {
+        "cer": 0.37666666666666665,
+        "word_acc": 0.3,
+        "over_correction": 0.0,
+        "n_raw_correct": 1,
+        "made_worse": 0.1
+      },
+      "all": {
+        "cer": 0.45166666666666666,
+        "word_acc": 0.3,
+        "over_correction": 0.0,
+        "n_raw_correct": 2,
+        "made_worse": 0.3
+      },
+      "stream_cer": 0.3877551020408163
+    }
+  },
+  "rows": [
+    {
+      "signer": "eva",
+      "reference": "HELLO",
+      "raw": "HECOCO",
+      "dictionary": "COCO"
+    },
+    {
+      "signer": "eva",
+      "reference": "BOOK",
+      "raw": "BOK",
+      "dictionary": "BOOK"
+    },
+    {
+      "signer": "eva",
+      "reference": "PENN",
+      "raw": "GETN",
+      "dictionary": "GET"
+    },
+    {
+      "signer": "eva",
+      "reference": "CAT",
+      "raw": "CATS",
+      "dictionary": "CATS"
+    },
+    {
+      "signer": "eva",
+      "reference": "DOG",
+      "raw": "DDOQ",
+      "dictionary": "DOO"
+    },
+    {
+      "signer": "eva",
+      "reference": "NAME",
+      "raw": "ONAME",
+      "dictionary": "NAME"
+    },
+    {
+      "signer": "eva",
+      "reference": "WATER",
+      "raw": "BWATTE",
+      "dictionary": "BATTLE"
+    },
+    {
+      "signer": "eva",
+      "reference": "FIVE",
+      "raw": "FIVE",
+      "dictionary": "FIVE"
+    },
+    {
+      "signer": "eva",
+      "reference": "TAXI",
+      "raw": "STAOI",
+      "dictionary": "STAGE"
+    },
+    {
+      "signer": "eva",
+      "reference": "GOOD",
+      "raw": "OROQODVD",
+      "dictionary": "ORTHODOX"
+    },
+    {
+      "signer": "isha",
+      "reference": "HELLO",
+      "raw": "HEL",
+      "dictionary": "HE"
+    },
+    {
+      "signer": "isha",
+      "reference": "BOOK",
+      "raw": "BOV",
+      "dictionary": "BOY"
+    },
+    {
+      "signer": "isha",
+      "reference": "PENN",
+      "raw": "QEN",
+      "dictionary": "MEN"
+    },
+    {
+      "signer": "isha",
+      "reference": "CAT",
+      "raw": "CAT",
+      "dictionary": "CAT"
+    },
+    {
+      "signer": "isha",
+      "reference": "DOG",
+      "raw": "POV",
+      "dictionary": "POV"
+    },
+    {
+      "signer": "isha",
+      "reference": "NAME",
+      "raw": "NATM",
+      "dictionary": "NATO"
+    },
+    {
+      "signer": "isha",
+      "reference": "WATER",
+      "raw": "WATR",
+      "dictionary": "WATER"
+    },
+    {
+      "signer": "isha",
+      "reference": "FIVE",
+      "raw": "FIVM",
+      "dictionary": "FIVE"
+    },
+    {
+      "signer": "isha",
+      "reference": "TAXI",
+      "raw": "TAI",
+      "dictionary": "TAI"
+    },
+    {
+      "signer": "isha",
+      "reference": "GOOD",
+      "raw": "VOX",
+      "dictionary": "BOX"
+    }
+  ],
+  "streams": [
+    {
+      "signer": "eva",
+      "reference": "HELLO BOOK PENN CAT DOG NAME WATER FIVE TAXI GOOD",
+      "raw": "HECOCO BOK GETN CATS DDOQQ NAME BWATTE FIVE STAOI OROQODVD",
+      "dictionary": "COCO BOOK GET CATS DOOR NAME BATTLE FIVE STAGE ORTHODOX"
+    },
+    {
+      "signer": "isha",
+      "reference": "HELLO BOOK PENN CAT DOG NAME WATER FIVE TAXI GOOD",
+      "raw": "HEL BOV QEN CAT POV NATM WATR FIVM TAI VOX",
+      "dictionary": "HE BOY MEN CAT POV NATO WATER FIVE TAI BOX"
+    }
+  ],
+  "latencies": []
+}
