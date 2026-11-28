@@ -28,7 +28,8 @@ looks right-handed (same idea as mirroring left hands for the letters).
   python train_signs.py --data cache/asl_signs_20.npz --out results_signs_20
   python train_signs.py --data cache/asl_signs_20.npz --out results_signs_20 --grid   # full ablation
 
-Outputs in --out: results.json, results.md, model_gru.pt (best config, for demo_predict.py)
+Outputs in --out: results.json, results.md, model_gru.pt (best config by val accuracy),
+model_gru_demo.pt (best config without arms, which is what demo_predict.py can run)
 """
 
 import argparse
@@ -269,7 +270,7 @@ def main():
             dict(name="gru", velocity=True, augment=True, arms=True),
         ]
 
-    rows, best = [], None
+    rows, best, best_hands = [], None, None  # best_hands: best config without pose (usable by the live demo)
     os.makedirs(args.out, exist_ok=True)
 
     t0 = time.time()
@@ -292,6 +293,8 @@ def main():
             accs.append(res["accuracy"]); top5s.append(res["top5"]); last_pred = pred
             if best is None or res["val_accuracy"] > best[0]:
                 best = (res["val_accuracy"], bundle)
+            if not cfg["arms"] and (best_hands is None or res["val_accuracy"] > best_hands[0]):
+                best_hands = (res["val_accuracy"], bundle)
         rows.append(dict(model="GRU", velocity=cfg["velocity"], augment=cfg["augment"], arms=cfg["arms"],
                          accuracy=float(np.mean(accs)), accuracy_std=float(np.std(accs)),
                          top5=float(np.mean(top5s)), worst=worst_signs(y[te], last_pred),
@@ -299,6 +302,8 @@ def main():
 
     import torch
     torch.save(best[1], os.path.join(args.out, "model_gru.pt"))
+    if best_hands is not None:  # the demo only has MediaPipe Hands, so it needs a no-arms model
+        torch.save(best_hands[1], os.path.join(args.out, "model_gru_demo.pt"))
 
     info = dict(data=args.data, clips=int(len(y)), signs=classes.tolist(),
                 participants_test=sorted(set(participant[te].tolist())),
@@ -320,7 +325,7 @@ def main():
     with open(os.path.join(args.out, "results.md"), "w") as f:
         f.write("\n".join(lines) + "\n")
     print("\n" + "\n".join(lines))
-    print(f"\nSaved {args.out}/results.md, results.json, model_gru.pt")
+    print(f"\nSaved {args.out}/results.md, results.json, model_gru.pt, model_gru_demo.pt")
 
 
 if __name__ == "__main__":
