@@ -1,15 +1,15 @@
 ## Iteration 9: single pass vs two-stage on eva_close (same frames)
 
-Letter accuracy (J/Z excluded, 24 letters). Hand height = fraction of the frame height. 2 seeds.
+Letter accuracy (J/Z excluded, 24 letters). Hand size = longer side of the hand's box as a fraction of the frame height. 2 seeds.
 
-| Train | Landmarks | Test acc | hand < 0.30 | hand 0.30-0.40 | hand 0.40-0.50 | hand >= 0.50 |
+| Train | Landmarks | Test acc | size < 0.45 | size 0.45-0.55 | size 0.55-0.65 | size >= 0.65 |
 |---|---|---|---|---|---|---|
-| unseen signer | single pass | 73.9 +/- 0.4% | 18.2% | 71.5% | 81.8% | 80.3% |
-| new session | single pass | 81.8 +/- 0.1% | 40.7% | 69.0% | 84.4% | 89.7% |
-| unseen signer | two-stage | 71.8 +/- 0.1% | 16.7% | 78.0% | 84.2% | 75.0% |
-| new session | two-stage | 79.0 +/- 0.2% | 42.1% | 71.8% | 84.7% | 84.2% |
+| unseen signer | single pass | 73.9 +/- 0.4% | 62.3% | 70.5% | 83.2% | 74.3% |
+| new session | single pass | 81.8 +/- 0.1% | 75.4% | 72.5% | 89.4% | 84.7% |
+| unseen signer | two-stage | 71.8 +/- 0.1% | 65.6% | 67.8% | 78.6% | 71.6% |
+| new session | two-stage | 79.0 +/- 0.2% | 77.2% | 69.4% | 83.4% | 82.5% |
 
-Frames per hand-height bin: < 0.30: 563, 0.30-0.40: 666, 0.40-0.50: 1277, >= 0.50: 3543
+Frames per hand-size bin: < 0.45: 1320, 0.45-0.55: 1216, 0.55-0.65: 2003, >= 0.65: 1510
 
 unseen signer = Kaggle + Isha's recording (no Eva data). new session = also Eva's older room recording.
 

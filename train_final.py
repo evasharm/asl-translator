@@ -10,7 +10,7 @@ So the only thing that changes between the two rows is the landmark extractor.
 Comparison (letter accuracy on eva_close, J/Z excluded, digits merged as in letters.py):
   unseen signer   train on Kaggle + Isha's recording, test on Eva
   new session     train on Kaggle + Isha + Eva's older room recording, test on eva_close
-Both are reported overall and by hand height in the frame (simulated small hands are
+Both are reported overall and by hand size in the frame (simulated small hands are
 in results_twostage/; this is the real-data check).
 
 Final model: Kaggle + every data_own recording (two-stage where available), tilt+jitter
@@ -29,8 +29,8 @@ import numpy as np
 
 from letters import VIEW, load_letters, predict_proba, train_letters
 
-BINS = [0.0, 0.3, 0.4, 0.5, 9.0]
-BIN_NAMES = ["< 0.30", "0.30-0.40", "0.40-0.50", ">= 0.50"]
+BINS = [0.0, 0.45, 0.55, 0.65, 9.0]
+BIN_NAMES = ["< 0.45", "0.45-0.55", "0.55-0.65", ">= 0.65"]
 
 
 def main():
@@ -42,8 +42,10 @@ def main():
     os.makedirs(args.out, exist_ok=True)
 
     full = np.load(f"data_own/{args.test_rec}.npz", allow_pickle=False)
-    ys = full["landmarks_full"][..., 1]
-    hand_h = ys.max(1) - ys.min(1)  # hand height in frame-height units (single pass, same for both rows)
+    pts = full["landmarks_full"][..., :2]
+    # hand size = longer side of the hand's bounding box, in frame-height units (single pass, same for both
+    # rows). Height alone is misleading: sideways letters (G, H, P, Q) are short but not small.
+    hand_h = (pts.max(1) - pts.min(1)).max(1)
 
     results = {}
     for key, name in [("landmarks_full", "single pass"), ("landmarks", "two-stage")]:
@@ -76,7 +78,7 @@ def main():
                                                 bin_counts=counts)
             r = results[f"{setup} | {name}"]
             print(f"[{setup:13s} | {name:11s}] acc {r['accuracy'] * 100:5.1f} +/- {r['accuracy_std'] * 100:.1f}%  "
-                  f"by hand height " + "  ".join(f"{n} {a * 100:.0f}%" for n, a in zip(BIN_NAMES, r["by_hand_height"])))
+                  f"by hand size " + "  ".join(f"{n} {a * 100:.0f}%" for n, a in zip(BIN_NAMES, r["by_hand_height"])))
 
     # final model on everything, two-stage landmarks
     D = load_letters(key="landmarks")
@@ -92,14 +94,14 @@ def main():
                        confusable_pairs=confusions), f, indent=2)
 
     L = [f"## Iteration 9: single pass vs two-stage on {args.test_rec} (same frames)", "",
-         f"Letter accuracy (J/Z excluded, 24 letters). Hand height = fraction of the frame height. {args.seeds} seeds.", "",
-         "| Train | Landmarks | Test acc | " + " | ".join(f"hand {n}" for n in BIN_NAMES) + " |",
+         f"Letter accuracy (J/Z excluded, 24 letters). Hand size = longer side of the hand's box as a fraction of the frame height. {args.seeds} seeds.", "",
+         "| Train | Landmarks | Test acc | " + " | ".join(f"size {n}" for n in BIN_NAMES) + " |",
          "|---|---|---|" + "---|" * len(BIN_NAMES)]
     for r in results.values():
         L.append(f"| {r['setup']} | {r['landmarks']} | {r['accuracy'] * 100:.1f} +/- {r['accuracy_std'] * 100:.1f}% | " +
                  " | ".join(f"{a * 100:.1f}%" for a in r["by_hand_height"]) + " |")
     any_r = next(iter(results.values()))
-    L += ["", "Frames per hand-height bin: " + ", ".join(f"{n}: {c}" for n, c in zip(BIN_NAMES, any_r["bin_counts"])),
+    L += ["", "Frames per hand-size bin: " + ", ".join(f"{n}: {c}" for n, c in zip(BIN_NAMES, any_r["bin_counts"])),
           "", "unseen signer = Kaggle + Isha's recording (no Eva data). new session = also Eva's older room recording.",
           "", "Most confused letter pairs (unseen signer, two-stage; used by eval_cleanup.py): " +
           ", ".join(f"{p[0]}/{p[1]} ({c})" for p, c in confusions[:10]),
@@ -117,7 +119,7 @@ def main():
         r = results[f"unseen signer | {name}"]
         ax.bar(x + (i - 0.5) * 0.38, [a * 100 for a in r["by_hand_height"]], 0.38, label=name, color=color)
     ax.set_xticks(x, [f"{n}\n(n={c})" for n, c in zip(BIN_NAMES, any_r["bin_counts"])])
-    ax.set_xlabel("hand height / frame height")
+    ax.set_xlabel("hand size (longer side of hand box) / frame height")
     ax.set_ylabel("letter accuracy on Eva (%)")
     ax.set_ylim(0, 100)
     ax.legend(frameon=False)
