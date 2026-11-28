@@ -1,0 +1,302 @@
+{
+  "data": "cache/asl_signs_20.npz",
+  "clips": 6000,
+  "signs": [
+    "bird",
+    "brown",
+    "bye",
+    "cow",
+    "donkey",
+    "duck",
+    "fireman",
+    "hear",
+    "lips",
+    "listen",
+    "look",
+    "mouse",
+    "nuts",
+    "pretend",
+    "shhh",
+    "sleepy",
+    "toothbrush",
+    "uncle",
+    "wake",
+    "who"
+  ],
+  "participants_test": [
+    22343,
+    30680,
+    49445,
+    55372
+  ],
+  "n_train": 4495,
+  "n_val": 303,
+  "n_test": 1202,
+  "rows": [
+    {
+      "model": "frame-average + logreg",
+      "velocity": true,
+      "augment": false,
+      "arms": false,
+      "accuracy": 0.6663893510815307,
+      "accuracy_std": 0.0,
+      "top5": 0.9076539101497504,
+      "worst": [
+        [
+          "listen",
+          0.30303030303030304
+        ],
+        [
+          "bye",
+          0.36507936507936506
+        ],
+        [
+          "hear",
+          0.4857142857142857
+        ],
+        [
+          "pretend",
+          0.5357142857142857
+        ],
+        [
+          "mouse",
+          0.5967741935483871
+        ]
+      ],
+      "confusions": [
+        [
+          "listen -> hear",
+          21
+        ],
+        [
+          "bye -> donkey",
+          18
+        ],
+        [
+          "look -> uncle",
+          13
+        ],
+        [
+          "shhh -> mouse",
+          12
+        ],
+        [
+          "bye -> pretend",
+          12
+        ]
+      ]
+    },
+    {
+      "model": "GRU",
+      "velocity": false,
+      "augment": false,
+      "arms": false,
+      "accuracy": 0.7687188019966721,
+      "accuracy_std": 0.002960920203003689,
+      "top5": 0.9437049362174155,
+      "worst": [
+        [
+          "listen",
+          0.3484848484848485
+        ],
+        [
+          "shhh",
+          0.6491228070175439
+        ],
+        [
+          "bye",
+          0.6507936507936508
+        ],
+        [
+          "hear",
+          0.6714285714285714
+        ],
+        [
+          "nuts",
+          0.6896551724137931
+        ]
+      ],
+      "confusions": [
+        [
+          "listen -> hear",
+          31
+        ],
+        [
+          "shhh -> mouse",
+          18
+        ],
+        [
+          "bye -> pretend",
+          10
+        ],
+        [
+          "hear -> listen",
+          10
+        ],
+        [
+          "pretend -> mouse",
+          10
+        ]
+      ]
+    },
+    {
+      "model": "GRU",
+      "velocity": true,
+      "augment": false,
+      "arms": false,
+      "accuracy": 0.7637271214642262,
+      "accuracy_std": 0.016316905916090557,
+      "top5": 0.9445368829728231,
+      "worst": [
+        [
+          "listen",
+          0.2878787878787879
+        ],
+        [
+          "hear",
+          0.5714285714285714
+        ],
+        [
+          "pretend",
+          0.5892857142857143
+        ],
+        [
+          "bye",
+          0.6031746031746031
+        ],
+        [
+          "nuts",
+          0.6379310344827587
+        ]
+      ],
+      "confusions": [
+        [
+          "listen -> hear",
+          24
+        ],
+        [
+          "bye -> donkey",
+          15
+        ],
+        [
+          "hear -> listen",
+          12
+        ],
+        [
+          "listen -> bye",
+          11
+        ],
+        [
+          "donkey -> bye",
+          10
+        ]
+      ]
+    },
+    {
+      "model": "GRU",
+      "velocity": true,
+      "augment": true,
+      "arms": false,
+      "accuracy": 0.7787021630615639,
+      "accuracy_std": 0.002717126725217056,
+      "top5": 0.9547975596228508,
+      "worst": [
+        [
+          "listen",
+          0.3484848484848485
+        ],
+        [
+          "pretend",
+          0.6071428571428571
+        ],
+        [
+          "hear",
+          0.6571428571428571
+        ],
+        [
+          "who",
+          0.6724137931034483
+        ],
+        [
+          "nuts",
+          0.7068965517241379
+        ]
+      ],
+      "confusions": [
+        [
+          "listen -> hear",
+          31
+        ],
+        [
+          "hear -> listen",
+          17
+        ],
+        [
+          "pretend -> mouse",
+          11
+        ],
+        [
+          "toothbrush -> mouse",
+          9
+        ],
+        [
+          "bye -> donkey",
+          7
+        ]
+      ]
+    },
+    {
+      "model": "GRU",
+      "velocity": true,
+      "augment": true,
+      "arms": true,
+      "accuracy": 0.8056017748197449,
+      "accuracy_std": 0.0010376199075912197,
+      "top5": 0.9528563505268997,
+      "worst": [
+        [
+          "listen",
+          0.3484848484848485
+        ],
+        [
+          "bye",
+          0.6507936507936508
+        ],
+        [
+          "nuts",
+          0.6724137931034483
+        ],
+        [
+          "pretend",
+          0.6785714285714286
+        ],
+        [
+          "hear",
+          0.7428571428571429
+        ]
+      ],
+      "confusions": [
+        [
+          "listen -> hear",
+          30
+        ],
+        [
+          "shhh -> mouse",
+          11
+        ],
+        [
+          "hear -> listen",
+          10
+        ],
+        [
+          "pretend -> mouse",
+          10
+        ],
+        [
+          "bird -> mouse",
+          7
+        ]
+      ]
+    }
+  ]
+}
