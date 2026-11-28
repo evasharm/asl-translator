@@ -1,0 +1,332 @@
+{
+  "data": "cache/asl_signs_50.npz",
+  "clips": 10000,
+  "signs": [
+    "awake",
+    "balloon",
+    "because",
+    "bee",
+    "bird",
+    "brother",
+    "brown",
+    "bye",
+    "cat",
+    "closet",
+    "cow",
+    "doll",
+    "donkey",
+    "drink",
+    "duck",
+    "eye",
+    "farm",
+    "find",
+    "fireman",
+    "first",
+    "flower",
+    "frog",
+    "goose",
+    "hear",
+    "home",
+    "icecream",
+    "kiss",
+    "lips",
+    "listen",
+    "look",
+    "make",
+    "mom",
+    "mouse",
+    "napkin",
+    "nuts",
+    "owl",
+    "pen",
+    "pizza",
+    "pretend",
+    "shhh",
+    "sleepy",
+    "talk",
+    "think",
+    "tiger",
+    "toothbrush",
+    "uncle",
+    "up",
+    "wake",
+    "who",
+    "yesterday"
+  ],
+  "participants_test": [
+    22343,
+    30680,
+    49445,
+    55372
+  ],
+  "n_train": 7606,
+  "n_val": 499,
+  "n_test": 1895,
+  "rows": [
+    {
+      "model": "frame-average + logreg",
+      "velocity": true,
+      "augment": false,
+      "arms": false,
+      "accuracy": 0.5377308707124011,
+      "accuracy_std": 0.0,
+      "top5": 0.8200527704485489,
+      "worst": [
+        [
+          "goose",
+          0.16666666666666666
+        ],
+        [
+          "talk",
+          0.20454545454545456
+        ],
+        [
+          "awake",
+          0.22727272727272727
+        ],
+        [
+          "eye",
+          0.25
+        ],
+        [
+          "kiss",
+          0.2647058823529412
+        ]
+      ],
+      "confusions": [
+        [
+          "awake -> wake",
+          17
+        ],
+        [
+          "listen -> hear",
+          14
+        ],
+        [
+          "eye -> lips",
+          13
+        ],
+        [
+          "wake -> awake",
+          13
+        ],
+        [
+          "kiss -> home",
+          13
+        ]
+      ]
+    },
+    {
+      "model": "GRU",
+      "velocity": false,
+      "augment": false,
+      "arms": false,
+      "accuracy": 0.6636763412489007,
+      "accuracy_std": 0.012295501929499564,
+      "top5": 0.9013192612137203,
+      "worst": [
+        [
+          "awake",
+          0.0
+        ],
+        [
+          "listen",
+          0.25
+        ],
+        [
+          "pen",
+          0.41025641025641024
+        ],
+        [
+          "think",
+          0.42424242424242425
+        ],
+        [
+          "goose",
+          0.4444444444444444
+        ]
+      ],
+      "confusions": [
+        [
+          "awake -> wake",
+          34
+        ],
+        [
+          "listen -> hear",
+          25
+        ],
+        [
+          "up -> shhh",
+          14
+        ],
+        [
+          "cow -> yesterday",
+          10
+        ],
+        [
+          "duck -> goose",
+          8
+        ]
+      ]
+    },
+    {
+      "model": "GRU",
+      "velocity": true,
+      "augment": false,
+      "arms": false,
+      "accuracy": 0.6807387862796833,
+      "accuracy_std": 0.007350072969490284,
+      "top5": 0.8930518909410731,
+      "worst": [
+        [
+          "listen",
+          0.125
+        ],
+        [
+          "awake",
+          0.1590909090909091
+        ],
+        [
+          "talk",
+          0.3409090909090909
+        ],
+        [
+          "brother",
+          0.42424242424242425
+        ],
+        [
+          "pen",
+          0.4358974358974359
+        ]
+      ],
+      "confusions": [
+        [
+          "listen -> hear",
+          29
+        ],
+        [
+          "awake -> wake",
+          27
+        ],
+        [
+          "up -> shhh",
+          11
+        ],
+        [
+          "duck -> goose",
+          9
+        ],
+        [
+          "brother -> up",
+          8
+        ]
+      ]
+    },
+    {
+      "model": "GRU",
+      "velocity": true,
+      "augment": true,
+      "arms": false,
+      "accuracy": 0.7006156552330696,
+      "accuracy_std": 0.00630797575269697,
+      "top5": 0.9157431838170624,
+      "worst": [
+        [
+          "awake",
+          0.1590909090909091
+        ],
+        [
+          "listen",
+          0.3125
+        ],
+        [
+          "pen",
+          0.41025641025641024
+        ],
+        [
+          "brother",
+          0.45454545454545453
+        ],
+        [
+          "talk",
+          0.45454545454545453
+        ]
+      ],
+      "confusions": [
+        [
+          "awake -> wake",
+          25
+        ],
+        [
+          "listen -> hear",
+          20
+        ],
+        [
+          "donkey -> bye",
+          16
+        ],
+        [
+          "up -> shhh",
+          15
+        ],
+        [
+          "hear -> listen",
+          14
+        ]
+      ]
+    },
+    {
+      "model": "GRU",
+      "velocity": true,
+      "augment": true,
+      "arms": true,
+      "accuracy": 0.7071240105540898,
+      "accuracy_std": 0.00973992485481591,
+      "top5": 0.9190853122251538,
+      "worst": [
+        [
+          "awake",
+          0.3181818181818182
+        ],
+        [
+          "listen",
+          0.375
+        ],
+        [
+          "pen",
+          0.48717948717948717
+        ],
+        [
+          "farm",
+          0.55
+        ],
+        [
+          "mom",
+          0.55
+        ]
+      ],
+      "confusions": [
+        [
+          "awake -> wake",
+          21
+        ],
+        [
+          "listen -> hear",
+          20
+        ],
+        [
+          "farm -> cat",
+          11
+        ],
+        [
+          "wake -> awake",
+          11
+        ],
+        [
+          "duck -> goose",
+          10
+        ]
+      ]
+    }
+  ]
+}
