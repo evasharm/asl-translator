@@ -32,9 +32,11 @@ speaker notes are suggestions, not a script.
 ## 5. From letters to captions (iterations 8, 9, 10)
 - Character error rate on 10 fingerspelled words each, tuned on one person, tested on the other:
   every frame 539% -> majority vote 123% -> confidence-weighted 90% -> + hold rule 45%.
-- Example: FIVE -> `FIVE`, CAT -> `CAT`, HELLO -> `HELO` (missed double letter).
+- Example: FIVE -> `FIVE`, CAT -> `CAT`, HELLO -> `HEL` (Isha; missed the double L and the O).
 - Two-stage landmarks on Eva's new recording: no overall gain (71.8% vs 73.9%); small help only on the smallest hands.
-- LLM cleanup: [Eva: raw vs dictionary vs LLM error rate, over-correction, latency, which model goes in the demo].
+- LLM cleanup on the 20 words: raw 44.8% error -> dictionary 45.2% -> Claude Opus 5.5 42.0% (stream of all 10 words: 36.7% -> 28.6%), 0% over-correction, ~4.9 s per call. Local llama3.2: worse (70.6%), and it changed both words that were already right.
+- Example: DDOQ -> DOG, QEN -> PEN, BOK -> BOOK; but VOX stays VOX (GOOD) and GETN -> GET (PENN).
+- [Eva: which model goes in the demo and why.]
 
 ## 6. Demo video, then what we'd do next
 - Demo (1 to 2 min): spell two words, sign three or four trained words, raw caption turning into cleaned caption.
