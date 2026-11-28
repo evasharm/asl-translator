@@ -185,11 +185,12 @@ if S20 or S50:
             continue
         R = S["rows"]
         best = max(R[1:], key=lambda r: r["accuracy"])
-        P(f"{n} signs (chance {100 / n:.0f}%): the frame-average baseline reaches {pct(R[0]['accuracy'])} and the best GRU "
-          f"{pct(best['accuracy'])} (top-5 {pct(best['top5'])}), a gain of {(best['accuracy'] - R[0]['accuracy']) * 100:+.1f} "
-          f"points from modelling the order of frames. Velocity: {(R[2]['accuracy'] - R[1]['accuracy']) * 100:+.1f}; "
-          f"augmentation: {(R[3]['accuracy'] - R[2]['accuracy']) * 100:+.1f}; arms: {(R[4]['accuracy'] - R[3]['accuracy']) * 100:+.1f} "
-          f"points. Hardest signs: " + ", ".join(f"{s} ({a * 100:.0f}%)" for s, a in R[-1]["worst"][:4]) +
+        P(f"{n} signs (chance {100 / n:.0f}%): the frame-average baseline reaches {pct(R[0]['accuracy'])}; the plain GRU "
+          f"{pct(R[1]['accuracy'])} ({(R[1]['accuracy'] - R[0]['accuracy']) * 100:+.1f} points from modelling the order of frames). "
+          f"Then velocity {(R[2]['accuracy'] - R[1]['accuracy']) * 100:+.1f}, augmentation {(R[3]['accuracy'] - R[2]['accuracy']) * 100:+.1f} "
+          f"and arms {(R[4]['accuracy'] - R[3]['accuracy']) * 100:+.1f} points, ending at {pct(best['accuracy'])} (top-5 "
+          f"{pct(best['top5'])}). The best model without arms, which is what the demo can run, reaches {pct(R[3]['accuracy'])}. "
+          "Hardest signs: " + ", ".join(f"{s} ({a * 100:.0f}%)" for s, a in R[-1]["worst"][:4]) +
           "; most common confusions: " + ", ".join(f"{p}" for p, c in R[-1]["confusions"][:3]) + ".")
     P("[Takeaway in your own words: which addition mattered, by how much, and why you think so.]")
     P("The live demo only runs MediaPipe Hands, not the pose model, so it uses the best configuration without arms "
@@ -202,7 +203,7 @@ H("Iteration 8: from letter predictions to a caption")
 if CAP:
     R = CAP["landmarks"]["rules"]
     signers = list(R["raw"])
-    P("The letter classifier gives one prediction per webcam frame, roughly 15 to 30 per second, so turning it into "
+    P("The letter classifier gives one prediction per webcam frame, so turning it into "
       "text is its own problem. Each of us fingerspelled the same 10 words (HELLO, BOOK, PENN, CAT, DOG, NAME, WATER, FIVE, "
       "TAXI, GOOD) with record_words.py, dropping the hand out of view after each word. The letter model for each person "
       "is trained on the Kaggle photos plus the other person's alphabet only. We score character error rate (CER: edits "
@@ -292,10 +293,12 @@ if CLEAN:
 H("Lessons learned [draft, rewrite in your own words]")
 B("A model that scores 91% on a held-out Kaggle signer scored 56% on Eva's webcam and 45% on Isha's (iteration 5). "
   "Testing on people and cameras the model has never seen is the only number that predicts the demo.")
-B("Our own webcam data mattered more than any modelling trick: adding one session of the test person, or the other "
-  "person, moved accuracy more than augmentation or the two-stage extractor.")
+B("Data from the right person mattered more than modelling tricks: adding one earlier session of Eva raised accuracy on "
+  "her new recording by about 8 points (iteration 9), more than augmentation (about +4 in iteration 5) or the two-stage "
+  "extractor (about -2).")
 B("A result from simulation (two-stage on shrunken hands) did not carry over to real recordings in the form we expected, "
-  "and a bad measurement (hand height) almost made it look worse than it is. Check what a metric actually measures.")
+  "and our first way of binning by hand size (hand height) counted sideways letters such as G and P as small hands, which "
+  "flipped the small-hand result. Check what a metric actually measures.")
 B("Turning frame predictions into a caption is a separate problem from classifying frames: the hold rule cut character "
   "error rate by more than any change to the classifier.")
 
