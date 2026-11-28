@@ -1,0 +1,478 @@
+{
+  "landmarks": {
+    "rules": {
+      "raw": {
+        "eva": {
+          "params": {},
+          "word_cer": 7.216666666666667,
+          "stream_cer": 5.387755102040816,
+          "per_word": {
+            "HELLO": "HKHXFOEFCFCOEOCOCOCXCOCOCOCOC",
+            "BOOK": "FHCBCBCOCOCOCOMOMORK",
+            "PENN": "HTHXOPGPGPGPGPGXAXEFODKTNMNMN",
+            "CAT": "ECVOCOCOCOCOCVCROASAKTATATATATATSTSTSTSTSTSTSATATASTST",
+            "DOG": "LDVODCOCDRKHVCPOHGHPOPOHOPOQOQOQOQOQGQPQMCMCMCMLNQ",
+            "NAME": "OGIODTKTNTRAFEFENME",
+            "WATER": "CGBWFAXTATATATDEDT",
+            "FIVE": "HFIEOVKDFE",
+            "TAXI": "HTSASASTATXAXTDODXADODOXDODHDXYI",
+            "GOOD": "CPORORGROROROPOQRORPXOCOCOCOCOCDVDVDVDBD"
+          },
+          "stream": "HKHXFOEFCFCOEOCOCOCXCOCOCOCOCFHCBCBCOCOCOCOMOMORKHTHXOPGPGPGPGPGXAXEFODKTNMNMNECVOCOCOCOCOCVCROASAKTATATATATATSTSTSTSTSTSTSATATASTSTLDVODCOCDRKHVCPOHGHPOPOHOPOQOQOQOQOQGQPQMCMCMCMLNQOGIODTKTNTRAFEFENMECGBWFAXTATATATDEDTHFIEOVKDFEHTSASASTATXAXTDODXADODOXDODHDXYICPORORGROROROPOQRORPXOCOCOCOCOCDVDVDVDBD"
+        },
+        "isha": {
+          "params": {},
+          "word_cer": 3.565,
+          "stream_cer": 2.836734693877551,
+          "per_word": {
+            "HELLO": "HOEDLDCO",
+            "BOOK": "WBCOCOCOCVKVWCH",
+            "PENN": "HGPGPGQGQPNOEOEOEODFRURNTNTNTNMN",
+            "CAT": "HCHCOALXPT",
+            "DOG": "PLDRPTPLDCODPHVH",
+            "NAME": "GHNRLADWTEFEMOAMAMAMAMAMAT",
+            "WATER": "WBFOAKRWKTATLDEMEDODMEDWURWV",
+            "FIVE": "FIFRURUVBFEOMEO",
+            "TAXI": "TLATODXDXHDHDOIM",
+            "GOOD": "VHCOCODLPXL"
+          },
+          "stream": "HOEDLDCOWBCOCOCOCVKVWCHGPGPGQGQPNOEOEOEODFRURNTNTNTNMNHCHCOALXPTPLDRPTPLDCODPHVHGHNRLADWTEFEMOAMAMAMAMAMATWBFOAKRWKTATLDEMEDODMEDWURWVFIFRURUVBFEOMEOTLATODXDXHDHDOIMVHCOCODLPXL"
+        }
+      },
+      "vote": {
+        "eva": {
+          "params": {
+            "W": 16
+          },
+          "word_cer": 1.4383333333333332,
+          "stream_cer": 0.9387755102040817,
+          "per_word": {
+            "HELLO": "HKHECOCO",
+            "BOOK": "FCBOCOCOK",
+            "PENN": "HTXPGPGEFTNMN",
+            "CAT": "ECATS",
+            "DOG": "LDOCHPOQCQ",
+            "NAME": "ODTNAEME",
+            "WATER": "CGBWATE",
+            "FIVE": "HFIVE",
+            "TAXI": "HTSTADODI",
+            "GOOD": "CPOROQROCODVDBD"
+          },
+          "stream": "HKHECOCOCBOCOCOKXPGPGEFTNMNCATSDOCHPOQCQODTNAEMEBWATEFIVESTADODIOROQROCODVDBD"
+        },
+        "isha": {
+          "params": {
+            "W": 16
+          },
+          "word_cer": 1.0266666666666668,
+          "stream_cer": 0.7142857142857143,
+          "per_word": {
+            "HELLO": "HOELCO",
+            "BOOK": "WBOCV",
+            "PENN": "HGPGPGQEODNTN",
+            "CAT": "HCHCAT",
+            "DOG": "PRPCOV",
+            "NAME": "GNATMAM",
+            "WATER": "WBATMODOMR",
+            "FIVE": "FIRVOM",
+            "TAXI": "TADXHI",
+            "GOOD": "VHOX"
+          },
+          "stream": "HOELCOBOCVWGQEODNTNCATPCOVNATMAMWBATMODOMRFIRVOMTADXHIVHOX"
+        }
+      },
+      "weighted": {
+        "eva": {
+          "params": {
+            "W": 16,
+            "c_min": 0.5
+          },
+          "word_cer": 1.1566666666666667,
+          "stream_cer": 0.7346938775510204,
+          "per_word": {
+            "HELLO": "HECOCO",
+            "BOOK": "HCBCOCOK",
+            "PENN": "HXPGPGETN",
+            "CAT": "ECAT",
+            "DOG": "LDOHPOQCQ",
+            "NAME": "OTNAME",
+            "WATER": "CGBWATE",
+            "FIVE": "HFIVE",
+            "TAXI": "HTSTAODI",
+            "GOOD": "CHPOROQOCODVDBD"
+          },
+          "stream": "HECOCOCBCOCOKXPGPGETNCATDOHPOQCQOTNAMEBWATEFIVESTAODIOROQOCODVDBD"
+        },
+        "isha": {
+          "params": {
+            "W": 16,
+            "c_min": 0.5
+          },
+          "word_cer": 0.6516666666666666,
+          "stream_cer": 0.5306122448979592,
+          "per_word": {
+            "HELLO": "HOELCO",
+            "BOOK": "WBOCV",
+            "PENN": "HPGQENTN",
+            "CAT": "HCHCAT",
+            "DOG": "POV",
+            "NAME": "GNATMA",
+            "WATER": "WATMR",
+            "FIVE": "FIRVOM",
+            "TAXI": "TADI",
+            "GOOD": "VHOX"
+          },
+          "stream": "HOELCOBOCVQENTNCATPOVNATMAWATMRFIRVOMTADIVHOX"
+        }
+      },
+      "hold": {
+        "eva": {
+          "params": {
+            "W": 4,
+            "c_min": 0.0,
+            "H": 10,
+            "d_min": 0.6
+          },
+          "word_cer": 0.49499999999999994,
+          "stream_cer": 0.4897959183673469,
+          "per_word": {
+            "HELLO": "HECOCO",
+            "BOOK": "BOK",
+            "PENN": "GETN",
+            "CAT": "CATS",
+            "DOG": "DDOQ",
+            "NAME": "ONAME",
+            "WATER": "BWATTE",
+            "FIVE": "FIVE",
+            "TAXI": "STAOI",
+            "GOOD": "OROQODVD"
+          },
+          "stream": "HECOCOBOKGETNCATSDDOQQNAMEBWATTEFIVESTAOIOROQODVD"
+        },
+        "isha": {
+          "params": {
+            "W": 12,
+            "c_min": 0.5,
+            "H": 26,
+            "d_min": 0.3
+          },
+          "word_cer": 0.40166666666666667,
+          "stream_cer": 0.5102040816326531,
+          "per_word": {
+            "HELLO": "HEL",
+            "BOOK": "BOV",
+            "PENN": "QEN",
+            "CAT": "CAT",
+            "DOG": "POV",
+            "NAME": "NATM",
+            "WATER": "WATMR",
+            "FIVE": "FIV",
+            "TAXI": "TAI",
+            "GOOD": "VOX"
+          },
+          "stream": "HELBOVQENCATPOVNATMWATMRFIVTAIOX"
+        }
+      },
+      "space": {
+        "eva": {
+          "params": {
+            "W": 4,
+            "c_min": 0.0,
+            "H": 10,
+            "d_min": 0.6,
+            "G": 2
+          },
+          "word_cer": 0.49499999999999994,
+          "stream_cer": 0.40816326530612246,
+          "per_word": {
+            "HELLO": "HECOCO",
+            "BOOK": "BOK",
+            "PENN": "GETN",
+            "CAT": "CATS",
+            "DOG": "DDOQ",
+            "NAME": "ONAME",
+            "WATER": "BWATTE",
+            "FIVE": "FIVE",
+            "TAXI": "STAOI",
+            "GOOD": "OROQODVD"
+          },
+          "stream": "HECOCO BOK GETN CATS DDOQQ NAME BWATTE FIVE STAOI OROQODVD"
+        },
+        "isha": {
+          "params": {
+            "W": 4,
+            "c_min": 0.0,
+            "H": 22,
+            "d_min": 0.6,
+            "G": 2
+          },
+          "word_cer": 0.40166666666666667,
+          "stream_cer": 0.32653061224489793,
+          "per_word": {
+            "HELLO": "HEL",
+            "BOOK": "BOV",
+            "PENN": "QEN",
+            "CAT": "CAT",
+            "DOG": "POV",
+            "NAME": "NATM",
+            "WATER": "WATR",
+            "FIVE": "FIVM",
+            "TAXI": "TAI",
+            "GOOD": "VOX"
+          },
+          "stream": "HEL BOV QEN CAT POV NATM WATR FIVM TAI VOX"
+        }
+      }
+    },
+    "info": {
+      "eva": {
+        "n_train": 17274,
+        "frames": 3263,
+        "det_rate": 0.9243027888446215
+      },
+      "isha": {
+        "n_train": 23034,
+        "frames": 1776,
+        "det_rate": 0.8980855855855856
+      }
+    }
+  },
+  "landmarks_full": {
+    "rules": {
+      "raw": {
+        "eva": {
+          "params": {},
+          "word_cer": 4.776666666666666,
+          "stream_cer": 3.693877551020408,
+          "per_word": {
+            "HELLO": "HKHGHAFEOFCOCOCOCO",
+            "BOOK": "FHCFBCOCOCOCOCOCOCOCORKVKV",
+            "PENN": "HTHTXGPGXAXFEFKTNTNMNTN",
+            "CAT": "ECBCBCVCDRASASASAKT",
+            "DOG": "ODCOCOCRKVHOHGHPOMQXQMOMXMCMCMCMLM",
+            "NAME": "ODGIODTDADTKTNTRAFENMNMTE",
+            "WATER": "CGBWFAXTATDER",
+            "FIVE": "FIETVKDE",
+            "TAXI": "OATATATXAXOXDXYI",
+            "GOOD": "QPXPOSOMOMOMXMXOCOCOCOCOCOCDOWDVDBD"
+          },
+          "stream": "HKHGHAFEOFCOCOCOCOFHCFBCOCOCOCOCOCOCOCORKVKVHTHTXGPGXAXFEFKTNTNMNTNECBCBCVCDRASASASAKTODCOCOCRKVHOHGHPOMQXQMOMXMCMCMCMLMODGIODTDADTKTNTRAFENMNMTECGBWFAXTATDERFIETVKDEOATATATXAXOXDXYIQPXPOSOMOMOMXMXOCOCOCOCOCOCDOWDVDBD"
+        },
+        "isha": {
+          "params": {},
+          "word_cer": 3.0833333333333335,
+          "stream_cer": 2.510204081632653,
+          "per_word": {
+            "HELLO": "HGNMOEDLDCO",
+            "BOOK": "BCOCOCVRKVBC",
+            "PENN": "PGQGQGPGDOEDFDUGN",
+            "CAT": "MCOMALPTPT",
+            "DOG": "PLDRDPDCOXPHVH",
+            "NAME": "GNRQLADFWTMEDFEMOMOMAT",
+            "WATER": "WBFOAGRUKGTPLDEMDODMDEDURUWV",
+            "FIVE": "FIFRUKVBFEODOME",
+            "TAXI": "TPLOATODHDOIOIO",
+            "GOOD": "VHCODLPXPXPXL"
+          },
+          "stream": "HGNMOEDLDCOBCOCOCVRKVBCPGQGQGPGDOEDFDUGNMCOMALPTPTPLDRDPDCOXPHVHGNRQLADFWTMEDFEMOMOMATWBFOAGRUKGTPLDEMDODMDEDURUWVFIFRUKVBFEODOMETPLOATODHDOIOIOVHCODLPXPXPXL"
+        }
+      },
+      "vote": {
+        "eva": {
+          "params": {
+            "W": 16
+          },
+          "word_cer": 1.5416666666666665,
+          "stream_cer": 1.0204081632653061,
+          "per_word": {
+            "HELLO": "HKHGHECO",
+            "BOOK": "FCBCOCOV",
+            "PENN": "HTXGEFTNMN",
+            "CAT": "ECAT",
+            "DOG": "ODCOCHPOMOMCMCM",
+            "NAME": "ODTNAEME",
+            "WATER": "CGBWATE",
+            "FIVE": "FIVE",
+            "TAXI": "OATATAXOXI",
+            "GOOD": "QPXPOMXOCOCDVDBD"
+          },
+          "stream": "HKHGHECOBCOCOVXGEFTNMNCATDCOCHPOMOMCMCMODTNAEMEBWATEFIVETATAXOXIPOMXOCOCDVDBD"
+        },
+        "isha": {
+          "params": {
+            "W": 16
+          },
+          "word_cer": 0.8699999999999999,
+          "stream_cer": 0.7142857142857143,
+          "per_word": {
+            "HELLO": "HOELCO",
+            "BOOK": "BCOCV",
+            "PENN": "PGQGEDUN",
+            "CAT": "MCAT",
+            "DOG": "PLDPCOV",
+            "NAME": "GNATM",
+            "WATER": "WBATMDMR",
+            "FIVE": "FIRVBOM",
+            "TAXI": "TADHOI",
+            "GOOD": "VHOPX"
+          },
+          "stream": "HOELCOBCOCVPGQGEDUNCATPCOVNATMWBATMDMRFIRVBOMTADHOIVHOPX"
+        }
+      },
+      "weighted": {
+        "eva": {
+          "params": {
+            "W": 16,
+            "c_min": 0.5
+          },
+          "word_cer": 1.0583333333333333,
+          "stream_cer": 0.7959183673469388,
+          "per_word": {
+            "HELLO": "HKHGHECO",
+            "BOOK": "HCBCOV",
+            "PENN": "HXGETN",
+            "CAT": "CAT",
+            "DOG": "ODCOHPOMCMCM",
+            "NAME": "OTNAEME",
+            "WATER": "CGBWATE",
+            "FIVE": "FIVE",
+            "TAXI": "TATAXOXI",
+            "GOOD": "QPOCOCDBD"
+          },
+          "stream": "HKHGHECOCBCOVXGETNCATDCOHPOMCMCMOTNAEMEBWATEFIVETATAXOXIPOCOCDBD"
+        },
+        "isha": {
+          "params": {
+            "W": 16,
+            "c_min": 0.5
+          },
+          "word_cer": 0.605,
+          "stream_cer": 0.5918367346938775,
+          "per_word": {
+            "HELLO": "HOELCO",
+            "BOOK": "BCOV",
+            "PENN": "PGEDN",
+            "CAT": "CAT",
+            "DOG": "PDPOV",
+            "NAME": "GNATM",
+            "WATER": "WBATMR",
+            "FIVE": "FIRVOM",
+            "TAXI": "TADOI",
+            "GOOD": "VHCOPX"
+          },
+          "stream": "HOELCOBCOVPGEDNCATPOVNATMWBATMRFIRVOMTADOIVHCOPX"
+        }
+      },
+      "hold": {
+        "eva": {
+          "params": {
+            "W": 4,
+            "c_min": 0.0,
+            "H": 14,
+            "d_min": 0.3
+          },
+          "word_cer": 0.46333333333333326,
+          "stream_cer": 0.46938775510204084,
+          "per_word": {
+            "HELLO": "HECO",
+            "BOOK": "BOOV",
+            "PENN": "GGETN",
+            "CAT": "CAT",
+            "DOG": "DOPOMO",
+            "NAME": "NAMME",
+            "WATER": "BWATE",
+            "FIVE": "FIVE",
+            "TAXI": "TAOI",
+            "GOOD": "OXOODVD"
+          },
+          "stream": "HECOBOOVGGETNCATDOPOMONAMMEBWATEFIVETAOIOXOODVD"
+        },
+        "isha": {
+          "params": {
+            "W": 12,
+            "c_min": 0.5,
+            "H": 22,
+            "d_min": 0.3
+          },
+          "word_cer": 0.40166666666666667,
+          "stream_cer": 0.5102040816326531,
+          "per_word": {
+            "HELLO": "HEL",
+            "BOOK": "BOV",
+            "PENN": "GEN",
+            "CAT": "CAT",
+            "DOG": "POV",
+            "NAME": "NATM",
+            "WATER": "WATMR",
+            "FIVE": "FIVM",
+            "TAXI": "TAI",
+            "GOOD": "VO"
+          },
+          "stream": "HELBOVGENCATPOVNATMWATMRFIVMTAIVO"
+        }
+      },
+      "space": {
+        "eva": {
+          "params": {
+            "W": 4,
+            "c_min": 0.0,
+            "H": 14,
+            "d_min": 0.3,
+            "G": 2
+          },
+          "word_cer": 0.46333333333333326,
+          "stream_cer": 0.3673469387755102,
+          "per_word": {
+            "HELLO": "HECO",
+            "BOOK": "BOOV",
+            "PENN": "GGETN",
+            "CAT": "CAT",
+            "DOG": "DOPOMO",
+            "NAME": "NAMME",
+            "WATER": "BWATE",
+            "FIVE": "FIVE",
+            "TAXI": "TAOI",
+            "GOOD": "OXOODVD"
+          },
+          "stream": "HECO BOOV GGETN CAT DOPOMO NAMME BWATE FIVE TAOI OXOODVD"
+        },
+        "isha": {
+          "params": {
+            "W": 12,
+            "c_min": 0.5,
+            "H": 22,
+            "d_min": 0.3,
+            "G": 2
+          },
+          "word_cer": 0.40166666666666667,
+          "stream_cer": 0.32653061224489793,
+          "per_word": {
+            "HELLO": "HEL",
+            "BOOK": "BOV",
+            "PENN": "GEN",
+            "CAT": "CAT",
+            "DOG": "POV",
+            "NAME": "NATM",
+            "WATER": "WATMR",
+            "FIVE": "FIVM",
+            "TAXI": "TAI",
+            "GOOD": "VO"
+          },
+          "stream": "HEL BOV GEN CAT POV NATM WATMR FIVM TAI VO"
+        }
+      }
+    },
+    "info": {
+      "eva": {
+        "n_train": 17274,
+        "frames": 3263,
+        "det_rate": 0.9243027888446215
+      },
+      "isha": {
+        "n_train": 23034,
+        "frames": 1776,
+        "det_rate": 0.8980855855855856
+      }
+    }
+  }
+}

@@ -1,0 +1,114 @@
+{
+  "eva": {
+    "words": {
+      "HELLO": {
+        "reference": "HELLO",
+        "raw": "HECOCO"
+      },
+      "BOOK": {
+        "reference": "BOOK",
+        "raw": "BOK"
+      },
+      "PENN": {
+        "reference": "PENN",
+        "raw": "GETN"
+      },
+      "CAT": {
+        "reference": "CAT",
+        "raw": "CATS"
+      },
+      "DOG": {
+        "reference": "DOG",
+        "raw": "DDOQ"
+      },
+      "NAME": {
+        "reference": "NAME",
+        "raw": "ONAME"
+      },
+      "WATER": {
+        "reference": "WATER",
+        "raw": "BWATTE"
+      },
+      "FIVE": {
+        "reference": "FIVE",
+        "raw": "FIVE"
+      },
+      "TAXI": {
+        "reference": "TAXI",
+        "raw": "STAOI"
+      },
+      "GOOD": {
+        "reference": "GOOD",
+        "raw": "OROQODVD"
+      }
+    },
+    "stream": {
+      "reference": "HELLO BOOK PENN CAT DOG NAME WATER FIVE TAXI GOOD",
+      "raw": "HECOCO BOK GETN CATS DDOQQ NAME BWATTE FIVE STAOI OROQODVD"
+    },
+    "rule": "5 + space on hand drop",
+    "params": {
+      "W": 4,
+      "c_min": 0.0,
+      "H": 10,
+      "d_min": 0.6,
+      "G": 2
+    }
+  },
+  "isha": {
+    "words": {
+      "HELLO": {
+        "reference": "HELLO",
+        "raw": "HEL"
+      },
+      "BOOK": {
+        "reference": "BOOK",
+        "raw": "BOV"
+      },
+      "PENN": {
+        "reference": "PENN",
+        "raw": "QEN"
+      },
+      "CAT": {
+        "reference": "CAT",
+        "raw": "CAT"
+      },
+      "DOG": {
+        "reference": "DOG",
+        "raw": "POV"
+      },
+      "NAME": {
+        "reference": "NAME",
+        "raw": "NATM"
+      },
+      "WATER": {
+        "reference": "WATER",
+        "raw": "WATR"
+      },
+      "FIVE": {
+        "reference": "FIVE",
+        "raw": "FIVM"
+      },
+      "TAXI": {
+        "reference": "TAXI",
+        "raw": "TAI"
+      },
+      "GOOD": {
+        "reference": "GOOD",
+        "raw": "VOX"
+      }
+    },
+    "stream": {
+      "reference": "HELLO BOOK PENN CAT DOG NAME WATER FIVE TAXI GOOD",
+      "raw": "HEL BOV QEN CAT POV NATM WATR FIVM TAI VOX"
+    },
+    "rule": "5 + space on hand drop",
+    "params": {
+      "W": 4,
+      "c_min": 0.0,
+      "H": 22,
+      "d_min": 0.6,
+      "G": 2
+    }
+  }
+}
