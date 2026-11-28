@@ -1,0 +1,272 @@
+{
+  "provider": "ollama",
+  "model": "llama3.2",
+  "pairs": [
+    "GP",
+    "RU",
+    "MS",
+    "KV",
+    "MT",
+    "OQ",
+    "GO",
+    "GX",
+    "UV",
+    "DX"
+  ],
+  "table": {
+    "raw": {
+      "eva": {
+        "cer": 0.49499999999999994,
+        "word_acc": 0.1,
+        "over_correction": 0.0,
+        "n_raw_correct": 1,
+        "made_worse": 0.0
+      },
+      "isha": {
+        "cer": 0.40166666666666667,
+        "word_acc": 0.1,
+        "over_correction": 0.0,
+        "n_raw_correct": 1,
+        "made_worse": 0.0
+      },
+      "all": {
+        "cer": 0.4483333333333334,
+        "word_acc": 0.1,
+        "over_correction": 0.0,
+        "n_raw_correct": 2,
+        "made_worse": 0.0
+      },
+      "stream_cer": 0.36734693877551017
+    },
+    "dictionary": {
+      "eva": {
+        "cer": 0.5266666666666666,
+        "word_acc": 0.3,
+        "over_correction": 0.0,
+        "n_raw_correct": 1,
+        "made_worse": 0.5
+      },
+      "isha": {
+        "cer": 0.37666666666666665,
+        "word_acc": 0.3,
+        "over_correction": 0.0,
+        "n_raw_correct": 1,
+        "made_worse": 0.1
+      },
+      "all": {
+        "cer": 0.45166666666666666,
+        "word_acc": 0.3,
+        "over_correction": 0.0,
+        "n_raw_correct": 2,
+        "made_worse": 0.3
+      },
+      "stream_cer": 0.3877551020408163
+    },
+    "llm": {
+      "eva": {
+        "cer": 0.5533333333333333,
+        "word_acc": 0.0,
+        "over_correction": 1.0,
+        "n_raw_correct": 1,
+        "made_worse": 0.2
+      },
+      "isha": {
+        "cer": 0.8583333333333332,
+        "word_acc": 0.2,
+        "over_correction": 1.0,
+        "n_raw_correct": 1,
+        "made_worse": 0.4
+      },
+      "all": {
+        "cer": 0.7058333333333333,
+        "word_acc": 0.1,
+        "over_correction": 1.0,
+        "n_raw_correct": 2,
+        "made_worse": 0.3
+      },
+      "stream_cer": 0.3979591836734694
+    }
+  },
+  "rows": [
+    {
+      "signer": "eva",
+      "reference": "HELLO",
+      "raw": "HECOCO",
+      "dictionary": "COCO",
+      "llm": "HEKOKO"
+    },
+    {
+      "signer": "eva",
+      "reference": "BOOK",
+      "raw": "BOK",
+      "dictionary": "BOOK",
+      "llm": "BOCK"
+    },
+    {
+      "signer": "eva",
+      "reference": "PENN",
+      "raw": "GETN",
+      "dictionary": "GET",
+      "llm": "GENT"
+    },
+    {
+      "signer": "eva",
+      "reference": "CAT",
+      "raw": "CATS",
+      "dictionary": "CATS",
+      "llm": "COTS"
+    },
+    {
+      "signer": "eva",
+      "reference": "DOG",
+      "raw": "DDOQ",
+      "dictionary": "DOO",
+      "llm": "DOOQ"
+    },
+    {
+      "signer": "eva",
+      "reference": "NAME",
+      "raw": "ONAME",
+      "dictionary": "NAME",
+      "llm": "ONAME"
+    },
+    {
+      "signer": "eva",
+      "reference": "WATER",
+      "raw": "BWATTE",
+      "dictionary": "BATTLE",
+      "llm": "BATTERY"
+    },
+    {
+      "signer": "eva",
+      "reference": "FIVE",
+      "raw": "FIVE",
+      "dictionary": "FIVE",
+      "llm": "FIVES"
+    },
+    {
+      "signer": "eva",
+      "reference": "TAXI",
+      "raw": "STAOI",
+      "dictionary": "STAGE",
+      "llm": "STAOI"
+    },
+    {
+      "signer": "eva",
+      "reference": "GOOD",
+      "raw": "OROQODVD",
+      "dictionary": "ORTHODOX",
+      "llm": "OROGODVD"
+    },
+    {
+      "signer": "isha",
+      "reference": "HELLO",
+      "raw": "HEL",
+      "dictionary": "HE",
+      "llm": "HELLO"
+    },
+    {
+      "signer": "isha",
+      "reference": "BOOK",
+      "raw": "BOV",
+      "dictionary": "BOY",
+      "llm": "BOV"
+    },
+    {
+      "signer": "isha",
+      "reference": "PENN",
+      "raw": "QEN",
+      "dictionary": "MEN",
+      "llm": "QEN"
+    },
+    {
+      "signer": "isha",
+      "reference": "CAT",
+      "raw": "CAT",
+      "dictionary": "CAT",
+      "llm": "COT"
+    },
+    {
+      "signer": "isha",
+      "reference": "DOG",
+      "raw": "POV",
+      "dictionary": "POV",
+      "llm": "POVS"
+    },
+    {
+      "signer": "isha",
+      "reference": "NAME",
+      "raw": "NATM",
+      "dictionary": "NATO",
+      "llm": "NATM"
+    },
+    {
+      "signer": "isha",
+      "reference": "WATER",
+      "raw": "WATR",
+      "dictionary": "WATER",
+      "llm": "WATER"
+    },
+    {
+      "signer": "isha",
+      "reference": "FIVE",
+      "raw": "FIVM",
+      "dictionary": "FIVE",
+      "llm": "FIVM CORRECTED TO FIVE"
+    },
+    {
+      "signer": "isha",
+      "reference": "TAXI",
+      "raw": "TAI",
+      "dictionary": "TAI",
+      "llm": "TAY"
+    },
+    {
+      "signer": "isha",
+      "reference": "GOOD",
+      "raw": "VOX",
+      "dictionary": "BOX",
+      "llm": "VOK"
+    }
+  ],
+  "streams": [
+    {
+      "signer": "eva",
+      "reference": "HELLO BOOK PENN CAT DOG NAME WATER FIVE TAXI GOOD",
+      "raw": "HECOCO BOK GETN CATS DDOQQ NAME BWATTE FIVE STAOI OROQODVD",
+      "dictionary": "COCO BOOK GET CATS DOOR NAME BATTLE FIVE STAGE ORTHODOX",
+      "llm": "HEGOCO BOOK GETN CATS DDOQQ NAME BOWATTE FIVE STAOI OROQODVD"
+    },
+    {
+      "signer": "isha",
+      "reference": "HELLO BOOK PENN CAT DOG NAME WATER FIVE TAXI GOOD",
+      "raw": "HEL BOV QEN CAT POV NATM WATR FIVM TAI VOX",
+      "dictionary": "HE BOY MEN CAT POV NATO WATER FIVE TAI BOX",
+      "llm": "HEL BOY QEN CAT POV NATM WATER FIVE MATE TAI VOY"
+    }
+  ],
+  "latencies": [
+    2.3699389590037754,
+    0.2693718340015039,
+    0.08907399998861365,
+    0.09241879198816605,
+    0.11857925000367686,
+    0.09991604200331494,
+    0.09712470900558401,
+    0.11284991700085811,
+    0.12919204200443346,
+    0.47002100000099745,
+    0.8231457499932731,
+    0.08902358399063814,
+    0.09317254200868774,
+    0.09505145900766365,
+    0.1004092499933904,
+    0.11064691698993556,
+    0.11194037499080878,
+    0.08989587498945184,
+    0.33504470900516026,
+    0.10679087499738671,
+    0.0882388330064714,
+    0.6213510420056991
+  ]
+}
